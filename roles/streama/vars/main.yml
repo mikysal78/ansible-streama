@@ -1,0 +1,7 @@
+### streama
+## vars
+---
+packages:
+  - git
+  - openjdk-8-jre
+  - nginx-light

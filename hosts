@@ -1,0 +1,3 @@
+[streama]
+#streama.nnxx.ninux.org ansible_user=root ansible_port=2400 ansible_host=176.9.187.219
+tux.basilicata.nnxx ansible_user=root ansible_port=2400 ansible_host=10.27.22.5

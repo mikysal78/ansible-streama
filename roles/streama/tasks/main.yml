@@ -1,0 +1,44 @@
+### streama
+## tasks
+# apt
+- name: Update APT package cache
+  apt: update_cache=yes
+  tags: apt
+
+- name: Install dependencies
+  apt: >
+    name={{ packages }} state=latest
+  tags: apt
+
+- name: Run apt-get upgrade
+  apt: upgrade=yes
+  tags: apt
+
+- name: Create user streama
+  user:
+   name: streama
+   state: present
+   shell: /bin/bash             # Defaults to /bin/bash
+   system: no                   # Defaults to no
+   createhome: yes              # Defaults to yes
+   home: "{{ home_streama }}"   # Defaults to /srv/streama
+   tags: user
+
+- name: Download streama
+  get_url:
+    url: "{{ streama_download }}/v{{ strema_version }}/streama-{{ streama_version }}.jar"
+    dest: "{{ home_streama }}//streama.jar"
+    mode: '0665'
+    become_user: streama
+
+# systemd
+- name: Set systemd for streama
+  template: src=../templates/streama.service.j2 dest=/etc/systemd/system/streama.service
+  tags: nginx
+
+# nginx
+- name: Set nginx default
+  template: src=../templates/nginx.j2 dest=/etc/nginx/sites-available/default
+  tags: nginx
+
+

@@ -1,0 +1,7 @@
+### streama
+## handlers
+- name: Restart streama
+  service: name=streama state=restarted
+
+- name: Restart nginx
+  service: name=nginx state=restarted

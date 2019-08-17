@@ -1,0 +1,18 @@
+[Unit]
+Description=Streama Server
+After=syslog.target
+After=network.target
+
+[Service]
+User=streama
+Type=simple
+WorkingDirectory=/srv/streama/
+ExecStart=/usr/bin/java -jar /srv/streama/streama.jar
+TimeoutStartSec=120
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=Streama
+
+[Install]
+WantedBy=multi-user.target
