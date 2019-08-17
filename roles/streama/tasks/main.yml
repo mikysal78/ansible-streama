@@ -22,14 +22,14 @@
    system: no                   # Defaults to no
    createhome: yes              # Defaults to yes
    home: "{{ home_streama }}"   # Defaults to /srv/streama
-   tags: user
+  tags: user
 
 - name: Download streama
   get_url:
-    url: "{{ streama_download }}/v{{ strema_version }}/streama-{{ streama_version }}.jar"
-    dest: "{{ home_streama }}//streama.jar"
-    mode: '0665'
-    become_user: streama
+    url: "{{ streama_download }}/v{{ streama_version }}/streama-{{ streama_version }}.jar"
+    dest: "{{ home_streama }}/streama.jar"
+    mode: '0765'
+  become_user: streama
 
 # systemd
 - name: Set systemd for streama

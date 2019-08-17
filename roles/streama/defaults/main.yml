@@ -1,7 +1,7 @@
 ### streama
 ## defaults
 ---
-streama_download: https://github.com/streamaserver/streama/releases/download/v1.7.2/streama-1.7.2.jar
+streama_download: https://github.com/streamaserver/streama/releases/download
 streama_version: 1.7.2 
 
 home_streama: /srv/streama
